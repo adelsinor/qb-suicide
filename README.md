@@ -9,7 +9,9 @@ add suicide.lua to qb-smallresources/cliant
 add to qb-smallresources/config.lua
 
 ---------------------------------------------------------
-Config.DisableSuicide = false -- Disable suicide command
+
+'Config.DisableSuicide = false -- Disable suicide command'
+
 ---------------------------------------------------------
 
 # discord : https://discord.gg/UagxbvDG
