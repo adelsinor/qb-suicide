@@ -1,7 +1,7 @@
 if Config.DisableSuicide then return end
 
-local HLCore = exports["hl-core"]:GetCoreObject()
-local LoadAnimDict = HLCore.Functions.RequestAnimDict
+local QBCore = exports["qb-core"]:GetCoreObject()
+local LoadAnimDict = QBCore.Functions.RequestAnimDict
 local suicided = false
 
 local suicideWeapons = {
@@ -23,7 +23,7 @@ local suicideWeapons = {
 
 RegisterCommand("suicide", function()
 	if suicided then
-		HLCore.Functions.Notify("How many times do you want to suicide?", "error")
+		QBCore.Functions.Notify("How many times do you want to suicide?", "error")
 		return
 	end
 	-- weapdraw controls this..
@@ -32,7 +32,7 @@ RegisterCommand("suicide", function()
 	local ped = PlayerPedId()
 	local weapon = GetSelectedPedWeapon(ped)
 	if not suicideWeapons[weapon] or GetAmmoInPedWeapon(ped, weapon) <= 0 then
-		HLCore.Functions.Notify("You need a pistol with ammo to do this!", "error")
+		QBCore.Functions.Notify("You need a pistol with ammo to do this!", "error")
 		return
 	end
 
@@ -43,5 +43,5 @@ RegisterCommand("suicide", function()
 	ClearPedTasksImmediately(ped)
 	SetPedShootsAtCoord(ped, 0.0, 0.0, 0.0, 0)
 	SetEntityHealth(ped, 0)
-	HLCore.Functions.Notify("What a shame! You killed yourself.", "error")
+	QBCore.Functions.Notify("What a shame! You killed yourself.", "error")
 end, false)
